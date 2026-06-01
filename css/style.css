@@ -1,6 +1,5 @@
 /* Variaveis */
 :root {
-    /* === TEMA ESCURO (padrão) === */
     --primary: #8B3FE8;
     --primary-hover: #6D28D9;
     --primary-glow: rgba(139, 63, 232, 0.25);
@@ -515,7 +514,7 @@ main {
     margin-bottom: 12px;
 }
 
-.contact-info > p {
+.contact-info>p {
     color: var(--text-muted);
     margin-bottom: 28px;
     line-height: 1.7;
@@ -665,8 +664,13 @@ main {
 }
 
 /* ===== TRANSICOES SUAVES ENTRE TEMAS ===== */
-.header, .familia-card, .contact-form, .input-group input,
-.input-group textarea, .stats-section, .footer {
+.header,
+.familia-card,
+.contact-form,
+.input-group input,
+.input-group textarea,
+.stats-section,
+.footer {
     transition: background-color 0.5s, border-color 0.5s, color 0.5s;
 }
 
@@ -683,7 +687,7 @@ body.dark-mode .familia-card {
 /* Light mode: inputs com fundo branco e sombra */
 body.dark-mode .input-group input,
 body.dark-mode .input-group textarea {
-    box-shadow: 0 1px 4px rgba(109,40,217,0.08);
+    box-shadow: 0 1px 4px rgba(109, 40, 217, 0.08);
 }
 
 /* Light mode: stat-num com cor roxa ao invés de branco */

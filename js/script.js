@@ -1,5 +1,5 @@
-document.addEventListener('DOMContentLoaded',()=>{
-    /* Manipulação do Menu */
+document.addEventListener('DOMContentLoaded', () => {
+
     const navMenu = document.getElementById('nav');
     const navLinks = document.querySelectorAll('.nav-link');
     const menuBtn = document.getElementById('menu-btn');
@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded',()=>{
         navMenu.classList.toggle('active');
 
         /*Lógica para alterar o icone */
-        if (navMenu.classList.contains('active')){
+        if (navMenu.classList.contains('active')) {
             menuIcon.classList.replace('ph-list', 'ph-x');
         } else {
             menuIcon.classList.replace('ph-x', 'ph-list');
@@ -26,41 +26,41 @@ document.addEventListener('DOMContentLoaded',()=>{
     let autoPlayTimer;
 
     //Função para mostrar o slide atual (currentSlide)
-    function showTargetSlide(index){
+    function showTargetSlide(index) {
         //Inicialmente remove todos os slides ativos
         slides.forEach(slide => slide.classList.remove('active'));
 
-        if (index >= slides.length){
+        if (index >= slides.length) {
             currentSlide = 0;
         }
-        else if (index < 0){
-            currentSlide = slides.length-1;
+        else if (index < 0) {
+            currentSlide = slides.length - 1;
         }
-        else{
+        else {
             currentSlide = index;
         }
 
         slides[currentSlide].classList.add('active');
     }
 
-    function runAutoPlay(){
-        autoPlayTimer = setInterval(()=> {
-            showTargetSlide(currentSlide+1);
+    function runAutoPlay() {
+        autoPlayTimer = setInterval(() => {
+            showTargetSlide(currentSlide + 1);
         }, 6000);
     }
 
     //Ações dos botões
-    btnNext.addEventListener('click', ()=>{
-        showTargetSlide(currentSlide+1);
+    btnNext.addEventListener('click', () => {
+        showTargetSlide(currentSlide + 1);
         resetAutoPlay();
     });
 
-    btnPrev.addEventListener('click', ()=>{
-        showTargetSlide(currentSlide-1);
+    btnPrev.addEventListener('click', () => {
+        showTargetSlide(currentSlide - 1);
         resetAutoPlay();
-    }); 
+    });
 
-    function resetAutoPlay(){
+    function resetAutoPlay() {
         clearInterval(autoPlayTimer);
         runAutoPlay();
     }
@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded',()=>{
             }
         });
     }, {
-        threshold : 0.6
+        threshold: 0.6
     });
 
     counters.forEach(counterItem => {
@@ -112,25 +112,25 @@ document.addEventListener('DOMContentLoaded',()=>{
     const themeIcon = themeBtn.querySelector('i');
 
     //Dark-Mode
-    
+
     const currentTheme = localStorage.getItem('theme')
-    if (currentTheme === 'dark'){
+    if (currentTheme === 'dark') {
         document.body.classList.add('dark-mode');
-        themeIcon.classList.replace('ph-moon','ph-sun')
+        themeIcon.classList.replace('ph-moon', 'ph-sun')
     }
 
 
-    themeBtn.addEventListener('click',()=> {
-     document.body.classList.toggle('dark-mode');
+    themeBtn.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
 
-     const isDark = document.body.classList.contains('dark-mode')
+        const isDark = document.body.classList.contains('dark-mode')
 
-        if (isDark){
-            themeIcon.classList.replace('ph-moon','ph-sun');
-            localStorage.setItem('theme','dark')
+        if (isDark) {
+            themeIcon.classList.replace('ph-moon', 'ph-sun');
+            localStorage.setItem('theme', 'dark')
         } else {
-            themeIcon.classList.replace('ph-sun','ph-moon');
-            localStorage.setItem('theme','light')
+            themeIcon.classList.replace('ph-sun', 'ph-moon');
+            localStorage.setItem('theme', 'light')
         }
     });
 
