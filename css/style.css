@@ -1,26 +1,4 @@
-/* Variaveis */
 :root {
-    --primary: #8B3FE8;
-    --primary-hover: #6D28D9;
-    --primary-glow: rgba(139, 63, 232, 0.25);
-
-    --bg-main: #0A0A0F;
-    --bg-alt: #0F0F18;
-    --surface: #16162A;
-    --surface-hover: #1E1E35;
-
-    --text-main: #F1F0FF;
-    --text-muted: #7C7A9E;
-    --text-subtle: #4A4870;
-
-    --border: rgba(139, 63, 232, 0.35);
-    --border-subtle: rgba(139, 63, 232, 0.15);
-
-    --radius: 8px;
-}
-
-body.dark-mode {
-    /* === TEMA CLARO ELEGANTE === */
     --primary: #6D28D9;
     --primary-hover: #5B21B6;
     --primary-glow: rgba(109, 40, 217, 0.15);
@@ -32,10 +10,30 @@ body.dark-mode {
 
     --text-main: #1A1730;
     --text-muted: #5C5880;
-    --text-subtle: #9896B8;
 
     --border: rgba(109, 40, 217, 0.3);
     --border-subtle: rgba(109, 40, 217, 0.12);
+
+    --radius: 8px;
+}
+
+body.dark-mode {
+    --primary: #8B3FE8;
+    --primary-hover: #6D28D9;
+    --primary-glow: rgba(139, 63, 232, 0.25);
+
+    --bg-main: #0A0A0F;
+    --bg-alt: #0F0F18;
+    --surface: #16162A;
+    --surface-hover: #1E1E35;
+
+    --text-main: #F1F0FF;
+    --text-muted: #7C7A9E;
+
+    --border: rgba(139, 63, 232, 0.35);
+    --border-subtle: rgba(139, 63, 232, 0.15);
+
+    --radius: 8px;
 }
 
 
@@ -73,7 +71,7 @@ ul {
     list-style: none;
 }
 
-/* ===== CABECALHO ===== */
+/*CABECALHO*/
 .header {
     background-color: var(--bg-main);
     border-bottom: 1px solid var(--border);
@@ -143,7 +141,7 @@ main {
     display: none;
 }
 
-/* ===== BOTOES ===== */
+/*BOTOES*/
 .btn {
     display: inline-block;
     padding: 12px 24px;
@@ -165,12 +163,10 @@ main {
     transform: translateY(-2px);
 }
 
-/* ===== SECAO PADDING ===== */
 .section-padding {
     padding: 80px 0 0;
 }
 
-/* ===== CABECALHO DE SECAO ===== */
 .section-header {
     text-align: center;
     margin-bottom: 60px;
@@ -188,7 +184,7 @@ main {
     font-size: 1rem;
 }
 
-/* ===== DIVISORIA ROXA ===== */
+/*DIVISORIA ROXA*/
 .section-divider {
     width: 100%;
     height: 3px;
@@ -196,7 +192,7 @@ main {
     margin-top: 60px;
 }
 
-/* ===== BANNER ROTATIVO ===== */
+/*BANNER ROTATIVO*/
 .hero {
     position: relative;
     height: calc(100vh - 70px);
@@ -251,7 +247,7 @@ main {
 
 .carousel-content p {
     font-size: 1.25rem;
-    color: var(--text-muted);
+    color: #fff;
     margin-bottom: 40px;
 }
 
@@ -286,7 +282,6 @@ main {
     background: var(--primary-hover);
 }
 
-/* ===== TIMELINE ===== */
 .timeline {
     display: flex;
     flex-direction: column;
@@ -316,7 +311,6 @@ main {
     margin-bottom: 4px;
 }
 
-/* Linha com imagem + texto lado a lado */
 .timeline-media-row {
     display: flex;
     gap: 20px;
@@ -325,7 +319,6 @@ main {
     margin-top: 8px;
 }
 
-/* Imagem / GIF */
 .timeline-img {
     flex: 0 0 380px;
     width: 380px;
@@ -360,7 +353,6 @@ main {
     opacity: 0;
 }
 
-/* Texto de anotacao ao lado da imagem */
 .timeline-note {
     flex: 1;
     color: var(--text-muted);
@@ -376,7 +368,6 @@ main {
     padding: 0;
 }
 
-/* ===== CONTATO ===== */
 .contato-direto {
     display: flex;
     flex-direction: column;
@@ -393,7 +384,6 @@ main {
     vertical-align: middle;
 }
 
-/* ===== FOOTER ===== */
 .footer {
     background: var(--bg-main);
     padding: 30px 0;
@@ -407,7 +397,6 @@ main {
     gap: 6px;
 }
 
-/* ===== RESPONSIVIDADE ===== */
 @media (max-width: 768px) {
     #menu-btn {
         display: flex;
@@ -449,7 +438,6 @@ main {
     }
 }
 
-/* ===== FAMILIA SECTION ===== */
 .familia-section {
     background-color: var(--bg-alt);
 }
@@ -499,7 +487,6 @@ main {
     margin-top: 16px;
 }
 
-/* ===== CONTACT LAYOUT (2 colunas) ===== */
 .contact-layout {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -540,7 +527,6 @@ main {
     flex-shrink: 0;
 }
 
-/* ===== FORM INPUTS ===== */
 .input-group {
     display: flex;
     flex-direction: column;
@@ -580,7 +566,6 @@ main {
     width: 100%;
 }
 
-/* ===== RESPONSIVIDADE NOVAS SECOES ===== */
 @media (max-width: 768px) {
     .familia-grid {
         grid-template-columns: 1fr;
@@ -592,7 +577,6 @@ main {
     }
 }
 
-/* ===== STATS SECTION ===== */
 .stats-section {
     background: var(--surface);
     padding: 80px 0;
@@ -661,42 +645,4 @@ main {
         grid-template-columns: repeat(2, 1fr);
         gap: 40px;
     }
-}
-
-/* ===== TRANSICOES SUAVES ENTRE TEMAS ===== */
-.header,
-.familia-card,
-.contact-form,
-.input-group input,
-.input-group textarea,
-.stats-section,
-.footer {
-    transition: background-color 0.5s, border-color 0.5s, color 0.5s;
-}
-
-/* Ajuste light mode: hero overlay mais suave */
-body.dark-mode .carousel-bg {
-    filter: brightness(0.35);
-}
-
-/* Light mode: familia cards com sombra sutil */
-body.dark-mode .familia-card {
-    box-shadow: 0 2px 16px rgba(109, 40, 217, 0.08);
-}
-
-/* Light mode: inputs com fundo branco e sombra */
-body.dark-mode .input-group input,
-body.dark-mode .input-group textarea {
-    box-shadow: 0 1px 4px rgba(109, 40, 217, 0.08);
-}
-
-/* Light mode: stat-num com cor roxa ao invés de branco */
-body.dark-mode .stat-num {
-    color: var(--primary);
-}
-
-/* Light mode: section-divider ajuste */
-body.dark-mode .section-divider {
-    background: linear-gradient(90deg, transparent, var(--primary), transparent);
-    opacity: 0.4;
 }

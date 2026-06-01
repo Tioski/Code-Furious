@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
     menuBtn.addEventListener('click', () => {
         navMenu.classList.toggle('active');
 
-        /*Lógica para alterar o icone */
         if (navMenu.classList.contains('active')) {
             menuIcon.classList.replace('ph-list', 'ph-x');
         } else {
@@ -21,7 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnNext = document.getElementById('btn-next');
     const btnPrev = document.getElementById('btn-prev');
 
-    /* Variaveis*/
     let currentSlide = 0;
     let autoPlayTimer;
 
@@ -68,50 +66,11 @@ document.addEventListener('DOMContentLoaded', () => {
     //Dá a partida na transição dos slides
     runAutoPlay();
 
-    const counters = document.querySelectorAll('.stat-num');
-
-    function runCounterAnimation(el) {
-
-        const targetNumber = parseInt(el.getAttribute('data-target'));
-
-        const durationLimit = 2000;
-
-        let counterValue = 0;
-
-        const incrementeAmount = targetNumber / (durationLimit / 20);
-
-        const updateVisualsTimer = setInterval(() => {
-            counterValue += incrementeAmount;
-
-            if (counterValue >= targetNumber) {
-                el.innerText = targetNumber;
-                clearInterval(updateVisualsTimer);
-            } else {
-                el.innerText = Math.ceil(counterValue);
-            }
-        }, 20);
-    }
-
-    const scrollObserver = new IntersectionObserver((entries, observerInstance) => {
-
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                runCounterAnimation(entry.target);
-                observerInstance.unobserve(entry.target);
-            }
-        });
-    }, {
-        threshold: 0.6
-    });
-
-    counters.forEach(counterItem => {
-        scrollObserver.observe(counterItem);
-    });
+    //Dark-Mode
 
     const themeBtn = document.getElementById('theme-toggle');
     const themeIcon = themeBtn.querySelector('i');
 
-    //Dark-Mode
 
     const currentTheme = localStorage.getItem('theme')
     if (currentTheme === 'dark') {
