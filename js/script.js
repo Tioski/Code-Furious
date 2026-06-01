@@ -65,9 +65,73 @@ document.addEventListener('DOMContentLoaded',()=>{
         runAutoPlay();
     }
 
-
-
     //Dá a partida na transição dos slides
     runAutoPlay();
+
+    const counters = document.querySelectorAll('.stat-num');
+
+    function runCounterAnimation(el) {
+
+        const targetNumber = parseInt(el.getAttribute('data-target'));
+
+        const durationLimit = 2000;
+
+        let counterValue = 0;
+
+        const incrementeAmount = targetNumber / (durationLimit / 20);
+
+        const updateVisualsTimer = setInterval(() => {
+            counterValue += incrementeAmount;
+
+            if (counterValue >= targetNumber) {
+                el.innerText = targetNumber;
+                clearInterval(updateVisualsTimer);
+            } else {
+                el.innerText = Math.ceil(counterValue);
+            }
+        }, 20);
+    }
+
+    const scrollObserver = new IntersectionObserver((entries, observerInstance) => {
+
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                runCounterAnimation(entry.target);
+                observerInstance.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold : 0.6
+    });
+
+    counters.forEach(counterItem => {
+        scrollObserver.observe(counterItem);
+    });
+
+    const themeBtn = document.getElementById('theme-toggle');
+    const themeIcon = themeBtn.querySelector('i');
+
+    //Dark-Mode
+    
+    const currentTheme = localStorage.getItem('theme')
+    if (currentTheme === 'dark'){
+        document.body.classList.add('dark-mode');
+        themeIcon.classList.replace('ph-moon','ph-sun')
+    }
+
+
+    themeBtn.addEventListener('click',()=> {
+     document.body.classList.toggle('dark-mode');
+
+     const isDark = document.body.classList.contains('dark-mode')
+
+        if (isDark){
+            themeIcon.classList.replace('ph-moon','ph-sun');
+            localStorage.setItem('theme','dark')
+        } else {
+            themeIcon.classList.replace('ph-sun','ph-moon');
+            localStorage.setItem('theme','light')
+        }
+    });
 
 });

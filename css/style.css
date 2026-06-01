@@ -1,18 +1,44 @@
 /* Variaveis */
 :root {
-    --primary: #772fd6;
-    --primary-hover: #5207dd;
+    /* === TEMA ESCURO (padrão) === */
+    --primary: #8B3FE8;
+    --primary-hover: #6D28D9;
+    --primary-glow: rgba(139, 63, 232, 0.25);
 
-    --bg-main: #050505;
-    --bg-alt: #000000;
-    --surface: #000000;
+    --bg-main: #0A0A0F;
+    --bg-alt: #0F0F18;
+    --surface: #16162A;
+    --surface-hover: #1E1E35;
 
-    --text-main: #F8FAFC;
-    --text-muted: #6b7280;
+    --text-main: #F1F0FF;
+    --text-muted: #7C7A9E;
+    --text-subtle: #4A4870;
 
-    --border: #772fd6;
+    --border: rgba(139, 63, 232, 0.35);
+    --border-subtle: rgba(139, 63, 232, 0.15);
+
     --radius: 8px;
 }
+
+body.dark-mode {
+    /* === TEMA CLARO ELEGANTE === */
+    --primary: #6D28D9;
+    --primary-hover: #5B21B6;
+    --primary-glow: rgba(109, 40, 217, 0.15);
+
+    --bg-main: #F5F4FF;
+    --bg-alt: #EEEDF8;
+    --surface: #FFFFFF;
+    --surface-hover: #EBE9FF;
+
+    --text-main: #1A1730;
+    --text-muted: #5C5880;
+    --text-subtle: #9896B8;
+
+    --border: rgba(109, 40, 217, 0.3);
+    --border-subtle: rgba(109, 40, 217, 0.12);
+}
+
 
 * {
     margin: 0;
@@ -176,7 +202,7 @@ main {
     position: relative;
     height: calc(100vh - 70px);
     min-height: 500px;
-    background-color: #000;
+    background-color: var(--bg-main);
 }
 
 .carousel {
@@ -226,7 +252,7 @@ main {
 
 .carousel-content p {
     font-size: 1.25rem;
-    color: #cbd5e1;
+    color: var(--text-muted);
     margin-bottom: 40px;
 }
 
@@ -286,7 +312,7 @@ main {
 }
 
 .timeline-text p {
-    color: #cbd5e1;
+    color: var(--text-muted);
     font-size: 0.95rem;
     margin-bottom: 4px;
 }
@@ -307,7 +333,7 @@ main {
     position: relative;
     border-radius: var(--radius);
     overflow: hidden;
-    border: 1px solid rgba(119, 47, 214, 0.3);
+    border: 1px solid var(--border);
 }
 
 .timeline-img .img-static {
@@ -338,7 +364,7 @@ main {
 /* Texto de anotacao ao lado da imagem */
 .timeline-note {
     flex: 1;
-    color: #cbd5e1;
+    color: var(--text-muted);
     font-size: 0.95rem;
     display: flex;
     flex-direction: column;
@@ -370,11 +396,11 @@ main {
 
 /* ===== FOOTER ===== */
 .footer {
-    background: #000;
+    background: var(--bg-main);
     padding: 30px 0;
-    border-top: 1px solid #3b0764;
+    border-top: 1px solid var(--border);
     text-align: center;
-    color: #ffffff;
+    color: var(--text-main);
     font-size: 0.9rem;
     margin-bottom: 10px;
     display: flex;
@@ -422,4 +448,251 @@ main {
         flex: 0 0 auto;
         width: 100%;
     }
+}
+
+/* ===== FAMILIA SECTION ===== */
+.familia-section {
+    background-color: var(--bg-alt);
+}
+
+.familia-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+.familia-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 32px 24px;
+    text-align: center;
+    transition: border-color 0.3s, transform 0.3s;
+}
+
+.familia-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-4px);
+}
+
+.familia-icon {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 16px;
+}
+
+.familia-card h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 12px;
+}
+
+.familia-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.familia-cta {
+    text-align: center;
+    margin-top: 16px;
+}
+
+/* ===== CONTACT LAYOUT (2 colunas) ===== */
+.contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+}
+
+.contact-info h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 12px;
+}
+
+.contact-info > p {
+    color: var(--text-muted);
+    margin-bottom: 28px;
+    line-height: 1.7;
+}
+
+.contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.contact-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--text-main);
+    font-size: 1rem;
+}
+
+.contact-list li i {
+    color: var(--primary);
+    font-size: 1.3rem;
+    flex-shrink: 0;
+}
+
+/* ===== FORM INPUTS ===== */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.input-group input,
+.input-group textarea {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 12px 16px;
+    color: var(--text-main);
+    font-family: inherit;
+    font-size: 0.95rem;
+    transition: border-color 0.3s;
+    outline: none;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+    border-color: var(--primary);
+}
+
+.input-group textarea {
+    resize: vertical;
+}
+
+.w-full {
+    width: 100%;
+}
+
+/* ===== RESPONSIVIDADE NOVAS SECOES ===== */
+@media (max-width: 768px) {
+    .familia-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
+
+/* ===== STATS SECTION ===== */
+.stats-section {
+    background: var(--surface);
+    padding: 80px 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-title h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+}
+
+.section-title.title-light h2 {
+    color: var(--text-main);
+}
+
+.line {
+    width: 60px;
+    height: 3px;
+    background: var(--primary);
+    margin: 0 auto;
+    border-radius: 2px;
+}
+
+.grid-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    text-align: center;
+}
+
+.stat-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.stat-box i {
+    font-size: 2.2rem;
+    color: var(--primary);
+    margin-bottom: 4px;
+}
+
+.stat-num {
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: var(--text-main);
+    line-height: 1;
+}
+
+.stat-box p {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+@media (max-width: 768px) {
+    .grid-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+}
+
+/* ===== TRANSICOES SUAVES ENTRE TEMAS ===== */
+.header, .familia-card, .contact-form, .input-group input,
+.input-group textarea, .stats-section, .footer {
+    transition: background-color 0.5s, border-color 0.5s, color 0.5s;
+}
+
+/* Ajuste light mode: hero overlay mais suave */
+body.dark-mode .carousel-bg {
+    filter: brightness(0.35);
+}
+
+/* Light mode: familia cards com sombra sutil */
+body.dark-mode .familia-card {
+    box-shadow: 0 2px 16px rgba(109, 40, 217, 0.08);
+}
+
+/* Light mode: inputs com fundo branco e sombra */
+body.dark-mode .input-group input,
+body.dark-mode .input-group textarea {
+    box-shadow: 0 1px 4px rgba(109,40,217,0.08);
+}
+
+/* Light mode: stat-num com cor roxa ao invés de branco */
+body.dark-mode .stat-num {
+    color: var(--primary);
+}
+
+/* Light mode: section-divider ajuste */
+body.dark-mode .section-divider {
+    background: linear-gradient(90deg, transparent, var(--primary), transparent);
+    opacity: 0.4;
 }
